@@ -1,0 +1,6 @@
+exec_gretl     Execute `gretl` codes in R
+exec_inp Execute `gretl` `inp` file(s) in R.
+write_inp Write `gretl` `inp` file in R.
+
+
+

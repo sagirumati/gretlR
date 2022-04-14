@@ -1,7 +1,7 @@
 ---
-title: "gretlR Package: Integration of R and gretl"
+title: "A Seamless Integration of Gretl and R"
 author: Sagiru Mati (PhD)
-output: bookdown::html_document2
+output: bookdown::pdf_document2
 linkcolor: blue
 toc: false
 ---
@@ -54,7 +54,9 @@ gnuplot gretl2 gretl1 --output="scatter.png"
 ols gretl1 const gretl2
 modeltab add
 tabprint --output="ols.Rmd"
+tabprint --output="ols.tex"
 eqnprint --output="olsmodel.Rmd"
+eqnprint --output="olsmodel.tex"
 tabprint --output="ols.csv"
 ```  
 `````
@@ -70,16 +72,17 @@ gnuplot gretl2 gretl1 --output="scatter.png"
 ols gretl1 const gretl2
 modeltab add
 tabprint --output="ols.Rmd"
+tabprint --output="ols.tex"
+eqnprint --output="olsmodel.tex"
 eqnprint --output="olsmodel.Rmd"
 tabprint --output="ols.csv"
 ```
 
 
 
+\include{olsmodel.tex}
 
-The above chunk creates an gretl program with the chunk’s content, then
-automatically gretl, which will save gretl outputs in the
-current directory.
+The above chunk creates an gretl program with the chunk’s content, then automatically gretl, which will save gretl outputs in the current directory.
 
 We can *dynamically and reproducibly* fetch the `gretl` graph object we created with the `gretl` chunk using the following R chunk: 
 
@@ -87,7 +90,7 @@ For the scatter graph:
 
 ```{r color,echo=T,fig.cap="Scatter graph produced by gretl chunk",out.width='\\textwidth'}
 library(knitr)
-knitr::include_graphics("scatter.png")
+knitr::include_graphics("gretlr/gretlr1/scatter.png")
 
 ```
 
@@ -97,7 +100,7 @@ knitr::include_graphics("scatter.png")
 or the line graph:
 
 ```{r nocolor,echo=T,out.width='\\textwidth',fig.cap="Line graph produced by gretl chunk"}
-knitr::include_graphics("line.png")
+knitr::include_graphics("gretlr/gretlr1/line.png")
 
 ```
 
@@ -115,7 +118,7 @@ Remember the OLS equation output is saved by the `gretl` chunk as `olsmodel.Rmd`
 ```
 ````
 
-```{r child, child='olsmodel.Rmd'}
+```{r child, child='gretlr/gretlr1/olsmodel.Rmd'}
 
 ```
 
@@ -131,20 +134,39 @@ Remember the OLS table output is saved by `gretl` chunk as `ols.Rmd`. The entire
 ```
 ````
 
-```{r child1, child="ols.Rmd"} 
+```{r child1, child="gretlr/gretlr1/ols.Rmd"} 
+
+```
+
+```{r includeTex,results='asis',tab.cap="some cap"}
+
+include_tex(chunk = "gretlr1",tex = "ols",start = 7,end = 24)
+
+```
+
+```{r includeGraph,fig.cap="some cap"}
+
+include_graph(chunk = "gretlr1",graph = "line.png")
 
 ```
 
 
+```{r importKable}
 
-<br><br><br><br>
+import_kable(chunk = "gretlr1",file = "ols.csv",caption="some table caption")
 
+```
 
-Unfortunately, user of `gretl` has little or no control over the outputs customisation before exporting.
-
-
-<br><br><br><br>
 
 Please visit my [Github](https://github.com/sagirumati/gretlR/tree/master/inst/examples/) for a better explanation and example files.
+
+
+
+
+
+```{r results='hold',eval=F}
+cat(paste(c("```{r results='asis'}","$$x^2\\alpha_{t_1}$$","```"),collapse = "\n"))
+```
+
 
 

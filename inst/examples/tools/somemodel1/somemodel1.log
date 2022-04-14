@@ -1,0 +1,6 @@
+Starting Dynare (version 5.0).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ...
+ERROR: somemodel1.mod: line 7, cols 1-6: Unknown symbol: x.
+If referenced from the 'initval', 'endval', 'histval', or 'shocks' block, you can pass the 'nostrict' option to dynare to have this line ignored.
+

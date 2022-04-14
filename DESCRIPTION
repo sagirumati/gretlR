@@ -1,23 +1,22 @@
 Package: gretlR
 Type: Package
-Title: Knit-Engine for 'Gretl'
-Version: 0.1.0
-Author: Sagiru Mati [aut, cre]
+Title: A Seamless Integration of 'Gretl' and 'R'
+Version: 0.1.1
 Authors@R: c(
-    person("Sagiru", "Mati", role = c("aut", "cre"), email = "smati@smati.com.ng"))
+    person("Sagiru", "Mati", role = c("aut", "cre"), email = "smati@smati.com.ng",comment=c(ORCID="0000-0003-1413-3974")))
 Maintainer: Sagiru Mati <smati@smati.com.ng>
-Description: It allows running 'gretl' (<http://gretl.sourceforge.net/index.html>) program from R Markdown. 'gretl' ('Gnu' Regression, 'Econometrics', and Time-series Library) is a statistical software for Econometric analysis.  This package serves as a 'gretl' Knit-Engine for 'knitr' package. Write all your 'gretl' commands in R Markdown chunk.
+Description: It allows running 'gretl' (<http://gretl.sourceforge.net/index.html>) program from R, R Markdown and Quarto. 'gretl' ('Gnu' Regression, 'Econometrics', and Time-series Library) is a statistical software for Econometric analysis.  This package does not only integrate 'gretl' and 'R' but also serves  as a 'gretl' Knit-Engine for 'knitr' package. Write all your 'gretl' commands in 'R', R Markdown chunk.
 Depends: R (>= 3.2.3)
-Imports: knitr (>= 1.20)
+Imports: knitr (>= 1.20), rmarkdown
 SystemRequirements: gretl (>= 1.9.4)
 License: GPL
-URL: https://github.com/sagirumati/gretlR/
+URL: https://CRAN.R-project.org/package=gretlR
 BugReports: https://github.com/sagirumati/gretlR/issues
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 NeedsCompilation: no
 Packaged: 2020-06-09 15:31:44 UTC; Sagiru
 Repository: CRAN
-LazyData: true
 Date/Publication: 2020-06-09 17:10:03 UTC
+Roxygen: list(markdown = TRUE)

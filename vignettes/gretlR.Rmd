@@ -1,10 +1,10 @@
 ---
-title: "Knit-Engine for gretl"
+title: "A Seamless Integration of Gretl and R"
 author: "Sagiru Mati"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Knit-Engine for gretl}
+  %\VignetteIndexEntry{A Seamless Integration of Gretl and R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -22,7 +22,7 @@ library(gretlR)
 
 # About gretlR
 
-gretlR is an R package that can run `gretl` program from R Markdown. 
+gretlR is an R package that can run `gretl` program from R, R Markdown and Quarto. 
 
 
 # Installation
@@ -85,11 +85,10 @@ tabprint --output="ols.csv"
 
 
 
-The above chunk creates an gretl program with the chunk’s content, then
-automatically gretl, which will save gretl outputs in the
-current directory.
+The above chunk creates a gretl program with the chunk’s content, then
+automatically run the gretl script, which will save gretl outputs in the new folder `gretlR` created in the current  working directory.
 
-We can *dynamically and reproducibly* fetch the `gretl` graph object we created with the `gretl` chunk using the following R chunk: 
+We can *dynamically and reproducibly* fetch the `gretl` graph object created by the `gretl` chunk using the following R chunk: 
 
 For the scatter graph:
 
@@ -144,11 +143,63 @@ Remember the OLS table output is saved by `gretl` chunk as `ols.Rmd`. The entire
 ```
 
 
+# write_inp function
+
+This function writes `gretl` file.
+
+```{r writeInp}
+code=r'(nulldata 500
+set seed 13
+gretl1 = normal()
+gretl2 = normal()
+setobs 12 1980:01 --time-series
+gnuplot gretl1 --time-series --with-lines --output="line.png"
+gnuplot gretl2 gretl1 --output="scatter.png"
+)'
+
+write_inp(code,path="gretlCodes")
+
+```
+
+# exec_inp function
+
+This function executes existing `gretl` files.
+
+```{r execInp}
+code=r'(nulldata 500
+set seed 13
+gretl1 = normal()
+gretl2 = normal()
+setobs 12 1980:01 --time-series
+gnuplot gretl1 --time-series --with-lines --output="line.png"
+gnuplot gretl2 gretl1 --output="scatter.png"
+ )'
+write_inp(code,path="SomeFolder/gretlCodes")
+exec_inp("someFolder/gretlCodes")
+
+```
+
+# exec_gretl function
+
+This function creates `gretl`file from R object or a set of character strings and executes it.
+
+```{r execGretl}
+code=r'(nulldata 500
+set seed 13
+gretl1 = normal()
+gretl2 = normal()
+setobs 12 1980:01 --time-series
+gnuplot gretl1 --time-series --with-lines --output="line.png"
+gnuplot gretl2 gretl1 --output="scatter.png"
+ )'
+exec_gretl(code)
+
+```
 
 <br><br><br><br>
 
 
-Unfortunately, user of `gretl` has little or no control over the outputs customisation before exporting.
+<!-- Unfortunately, user of `gretl` has little or no control over the outputs customisation before exporting. -->
 
 
 <br><br><br><br>
