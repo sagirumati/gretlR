@@ -5,6 +5,7 @@
 #' @usage include_tex(chunk="",tex="",path=".",start=NA,end=NA)
 #' @param path Object or a character string representing the path(s) to the `TeX` (default: `"."`)
 #' @param chunk Name of the `gretl` chunk that generates the `TeX` file.
+#' @param tex Name of a `LaTeX` file
 #' @param start Numeric. The start line of the `TeX` file to include.
 #' @param end Numeric. The last line of the `TeX` file to include.
 #' @return Set of \code{gretl} (open-source software for Econometrics) outputs
@@ -57,5 +58,5 @@ if(path!=".") {
   }
 
 
-if (!is.na(start) || !is.na(end)) cat(path) else cat(paste0("\\input{",path,"}"))
+if (!is.na(start) || !is.na(end)) asis_output(path) else asis_output(paste0("\\input{",path,"}"))
 }

@@ -1,3 +1,7 @@
+#' @import knitr
+#' @import kableExtra
+#' @importFrom utils read.csv
+
 # create_dir
 
 
@@ -19,7 +23,7 @@ on.exit(unlink(gretlExecFile),add = T)
 
 
 .onLoad<-function(libname,pkgname){
-  knitr::knit_engines$set(gretl=eng_gretl)
+  knit_engines$set(gretl=eng_gretl)
 }
 
 

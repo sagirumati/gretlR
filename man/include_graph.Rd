@@ -4,16 +4,14 @@
 \alias{include_graph}
 \title{Include graph file in R Markdown or Quarto document.}
 \usage{
-include_tex(chunk="",tex="",path=".",start=NA,end=NA)
+include_graph(path=".",chunk="",graph="")
 }
 \arguments{
-\item{chunk}{Name of the \code{gretl} chunk that generates the \code{TeX} file.}
-
 \item{path}{Object or a character string representing the path(s) to the \code{TeX} (default: \code{"."})}
 
-\item{start}{Numeric. The start line of the \code{TeX} file to include.}
+\item{chunk}{Name of the \code{gretl} chunk that generates the \code{TeX} file.}
 
-\item{end}{Numeric. The last line of the \code{TeX} file to include.}
+\item{graph}{Name of the graph and its extension}
 }
 \value{
 Set of \code{gretl} (open-source software for Econometrics) outputs
@@ -24,9 +22,17 @@ Use this function to include graph file in R Markdown or Quarto document.
 \examples{
 library(gretlR)
 \dontrun{
-include_graph(chunk="gretlR1",graph="line")
+code=r'(nulldata 500
+set seed 13
+gretl1 = normal()
+gretl2 = normal()
+setobs 12 1980:01 --time-series
+gnuplot gretl1 --time-series --with-lines --output="line.png"
+)'
+exec_gretl(code)
 
-include_tex("path/to/the/tex/file.tex")
+include_graph(path="line.png")
+
 }
 }
 \seealso{
@@ -35,7 +41,6 @@ Other important functions:
 \code{\link{exec_gretl}()},
 \code{\link{exec_inp}()},
 \code{\link{gretlR}},
-\code{\link{import_kable1}()},
 \code{\link{import_kable}()},
 \code{\link{include_tex}()},
 \code{\link{write_inp}()}

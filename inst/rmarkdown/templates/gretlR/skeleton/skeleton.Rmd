@@ -1,16 +1,14 @@
 ---
-title: "A Seamless Integration of Gretl and R"
-author: "Sagiru Mati"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{A Seamless Integration of Gretl and R}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "gretlR: A Seamless Integration of gretl and R"
+author: Sagiru Mati (PhD)
+output: bookdown::pdf_document2
+linkcolor: blue
+toc: false
 ---
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,comment = NULL,eval = T)
+knitr::opts_chunk$set(echo = TRUE,comment = NULL)
 if(!require(gretlR)) install.packages('gretlR')
 if(!require(kableExtra)) install.packages('kableExtra')
 options(knitr.kable.NA = '')
@@ -211,6 +209,7 @@ gnuplot gretl2 gretl1 --output="scatter.png"
 exec_gretl(code)
 
 ```
+
 
 # Demo
 

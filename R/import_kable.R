@@ -2,7 +2,23 @@
 #'
 #' Use this function to include TeX file in R Markdown or Quarto document.
 #'
-#' @usage include_tex(chunk="",tex="",path=".",start=NA,end=NA)
+#'@usage import_kable(path=".",chunk,file,start=NA,end=NA,skip_blank=FALSE,format=kable_format(),
+#'  digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
+#'   label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE,
+#'    longtable = FALSE, valign = "t",position = "h", centering = TRUE,
+#'    vline = getOption("knitr.table.vline",if (booktabs) "" else "|"),
+#' toprule = getOption("knitr.table.toprule",
+#' if (booktabs) "\\\\toprule" else "\\\\hline"),
+#' bottomrule = getOption("knitr.table.bottomrule",
+#' if (booktabs) "\\\\bottomrule" else "\\\\hline"),
+#' midrule = getOption("knitr.table.midrule",
+#' if (booktabs) "\\\\midrule" else "\\\\hline"),
+#' linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline",
+#'  caption.short = "",table.envir = if (!is.null(caption)) "table",...)
+#' @inheritParams knitr::kable
+#' @inheritParams kableExtra::kbl
+#' @param file Name of a file to be imported as `kable`
+#' @param skip_blank Logical. Whether or not to include blank lines
 #' @param path Object or a character string representing the path(s) to the `TeX` (default: `"."`)
 #' @param chunk Name of the `gretl` chunk that generates the `TeX` file.
 #' @param start Numeric. The start line of the `TeX` file to include.
@@ -11,9 +27,8 @@
 #' @family important functions
 #' @examples library(gretlR)
 #' \dontrun{
-#' include_tex(chunk="gretlR1",tex="ols")
-#'
-#' include_tex("path/to/the/tex/file.tex")
+#' import_kable(chunk = "gretlR",file = "olsTAble.csv",caption="Table generated from gretl
+#' chunk", start=3,end=7,digits=2)
 #'}
 #' @keywords documentation
 #' @export
@@ -26,47 +41,25 @@ if (booktabs) "\\bottomrule" else "\\hline"), midrule = getOption("knitr.table.m
 if (booktabs) "\\midrule" else "\\hline"), linesep = if (booktabs) c("",
 "", "", "", "\\addlinespace") else "\\hline", caption.short = "", table.envir = if (!is.null(caption)) "table",...){
 
-  if(chunk!="" && file!=""){
-    # tex=gsub("\\.tex$","",tex)
-    # tex=paste0(tex,".tex")
-    path=paste0('gretlR/',chunk,'/',file)
-    }
-if(path!=".") {
-  # path=gsub("\\.tex","",path)
-  # path=paste0(path,".tex")
-path=path
-  }
+  if(chunk!="" && file!="") path=paste0('gretlR/',chunk,'/',file)
+
+  if(path!=".") path=path
 
   path=readLines(path)
 
-  if(!is.na(start) && is.na(end)){
-    # path=readLines(path)
-    path=path[start:length(path)]
-    # newTex=basename(tempfile("newTex",".",".tex"))
-    # writeLines(path,newTex)
-    # path=newTex
-    }
+  if(!is.na(start) && is.na(end)) path=path[start:length(path)]
 
 
-  if(is.na(start) && !is.na(end)){
-    # path=readLines(path)
-    path=path[(1:end)]
-    # newTex=basename(tempfile("newTex",".",".tex"))
-    # writeLines(path,newTex)
-    # path=newTex
-  }
+  if(is.na(start) && !is.na(end))  path=path[(1:end)]
 
 
-  if(!is.na(start) && !is.na(end)){
-    # path=readLines(path)
-    path=path[start:end]
-    # newTex=basename(tempfile("newTex",".",".tex"))
-    # writeLines(path,newTex)
-    # path=newTex
-  }
+  if(!is.na(start) && !is.na(end)) path=path[start:end]
 
-if(skip_blank==T) path=path[-grep("^\\s*$", path)]
-path=writeLines(path,"gretlr.csv")
-return(knitr::kable(read.csv("gretlr.csv",allowEscapes = T,header = T,check.names = FALSE), format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...))
-# if (!is.na(start) || !is.na(end)) cat(path) else cat(paste0("\\input{",path,"}"))
+if(skip_blank) path=path[-grep("^\\s*$", path)]
+
+  gretlRcsv=basename(tempfile("grertlR",".",".csv"))
+path=writeLines(path,gretlRcsv)
+on.exit(unlink(gretlRcsv),add = T)
+return(kable(read.csv(gretlRcsv,allowEscapes = T,header = T,check.names = FALSE), format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...))
+
 }

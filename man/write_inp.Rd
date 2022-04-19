@@ -37,7 +37,6 @@ Other important functions:
 \code{\link{exec_gretl}()},
 \code{\link{exec_inp}()},
 \code{\link{gretlR}},
-\code{\link{import_kable1}()},
 \code{\link{import_kable}()},
 \code{\link{include_graph}()},
 \code{\link{include_tex}()}

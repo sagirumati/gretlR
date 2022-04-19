@@ -9,6 +9,8 @@ include_tex(chunk="",tex="",path=".",start=NA,end=NA)
 \arguments{
 \item{chunk}{Name of the \code{gretl} chunk that generates the \code{TeX} file.}
 
+\item{tex}{Name of a \code{LaTeX} file}
+
 \item{path}{Object or a character string representing the path(s) to the \code{TeX} (default: \code{"."})}
 
 \item{start}{Numeric. The start line of the \code{TeX} file to include.}
@@ -35,7 +37,6 @@ Other important functions:
 \code{\link{exec_gretl}()},
 \code{\link{exec_inp}()},
 \code{\link{gretlR}},
-\code{\link{import_kable1}()},
 \code{\link{import_kable}()},
 \code{\link{include_graph}()},
 \code{\link{write_inp}()}

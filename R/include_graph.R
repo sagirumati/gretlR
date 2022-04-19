@@ -2,23 +2,30 @@
 #'
 #' Use this function to include graph file in R Markdown or Quarto document.
 #'
-#' @usage include_tex(chunk="",tex="",path=".",start=NA,end=NA)
+#' @usage include_graph(path=".",chunk="",graph="")
 #' @param path Object or a character string representing the path(s) to the `TeX` (default: `"."`)
 #' @param chunk Name of the `gretl` chunk that generates the `TeX` file.
-#' @param start Numeric. The start line of the `TeX` file to include.
-#' @param end Numeric. The last line of the `TeX` file to include.
+#' @param graph Name of the graph and its extension
 #' @return Set of \code{gretl} (open-source software for Econometrics) outputs
 #' @family important functions
 #' @examples library(gretlR)
 #' \dontrun{
-#' include_graph(chunk="gretlR1",graph="line")
+#' code=r'(nulldata 500
+#' set seed 13
+#' gretl1 = normal()
+#' gretl2 = normal()
+#' setobs 12 1980:01 --time-series
+#' gnuplot gretl1 --time-series --with-lines --output="line.png"
+#' )'
+#' exec_gretl(code)
 #'
-#' include_tex("path/to/the/tex/file.tex")
+#' include_graph(path="line.png")
+#'
 #'}
 #' @keywords documentation
 #' @export
 
-include_graph <- function(chunk="",graph="",path=".") {
+include_graph <- function(path=".",chunk="",graph="") {
 
   if(chunk!="" && graph!=""){
     # file_extension="\\.(bmp|emf|eps|jpeg|pdf|png|ps|svg|tex|tiff|wmf)$"

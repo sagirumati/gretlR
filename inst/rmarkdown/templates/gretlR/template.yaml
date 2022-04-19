@@ -1,0 +1,4 @@
+name: gretlR
+description: >
+   A reproducible example for gretlR package
+create_dir: TRUE
