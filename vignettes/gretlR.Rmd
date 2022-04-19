@@ -10,7 +10,7 @@ vignette: >
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,comment = NULL,eval = T)
+knitr::opts_chunk$set(echo = TRUE,comment = NULL,eval = F)
 if(!require(gretlR)) install.packages('gretlR')
 if(!require(kableExtra)) install.packages('kableExtra')
 options(knitr.kable.NA = '')

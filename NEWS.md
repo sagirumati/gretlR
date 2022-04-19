@@ -11,7 +11,7 @@ What's new?
 
 * Template for R Markdown is created. Go to `file->New File->R Markdown-> From Template->gretlR`.
 
-* New functions `exec_gretl`, `exe_inp`, `import_kable`, `include_graph`, `include_tex` and `write_inp` are created
+* New functions `exec_gretl`, `exec_inp`, `import_kable`, `include_graph`, `include_tex` and `write_inp` are created
 
 
 
