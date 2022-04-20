@@ -1,3 +1,7 @@
+# gretlR 0.1.2
+
+Fix issues to meet CRAN policy
+
 # gretlR 0.1.1
 
 

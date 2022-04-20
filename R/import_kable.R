@@ -2,7 +2,7 @@
 #'
 #' Use this function to include TeX file in R Markdown or Quarto document.
 #'
-#'@usage import_kable(path=".",chunk,file,start=NA,end=NA,skip_blank=FALSE,format=kable_format(),
+#'@usage import_kable(path=".",chunk,file,start=NA,end=NA,skip_blank=TRUE,format=kable_format(),
 #'  digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
 #'   label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE,
 #'    longtable = FALSE, valign = "t",position = "h", centering = TRUE,
@@ -18,7 +18,7 @@
 #' @inheritParams knitr::kable
 #' @inheritParams kableExtra::kbl
 #' @param file Name of a file to be imported as `kable`
-#' @param skip_blank Logical. Whether or not to include blank lines
+#' @param skip_blank Logical. Whether or not to include blank rows.
 #' @param path Object or a character string representing the path(s) to the `TeX` (default: `"."`)
 #' @param chunk Name of the `gretl` chunk that generates the `TeX` file.
 #' @param start Numeric. The start line of the `TeX` file to include.
@@ -33,7 +33,7 @@
 #' @keywords documentation
 #' @export
 
-import_kable=function(path=".",chunk,file,start=NA,end=NA,skip_blank=FALSE,format=kable_format(), digits = getOption("digits"), row.names = NA,
+import_kable=function(path=".",chunk,file,start=NA,end=NA,skip_blank=TRUE,format=kable_format(), digits = getOption("digits"), row.names = NA,
 col.names = NA, align, caption = NULL, label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE, longtable = FALSE, valign = "t", position = "h", centering = TRUE, vline = getOption("knitr.table.vline",
 if (booktabs) "" else "|"), toprule = getOption("knitr.table.toprule",
 if (booktabs) "\\toprule" else "\\hline"), bottomrule = getOption("knitr.table.bottomrule",
@@ -55,7 +55,7 @@ if (booktabs) "\\midrule" else "\\hline"), linesep = if (booktabs) c("",
 
   if(!is.na(start) && !is.na(end)) path=path[start:end]
 
-if(skip_blank) path=path[-grep("^\\s*$", path)]
+if(skip_blank && any(grep("^\\s*$", path))) path=path[-grep("^\\s*$", path)]
 
   gretlRcsv=basename(tempfile("grertlR",".",".csv"))
 path=writeLines(path,gretlRcsv)

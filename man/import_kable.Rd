@@ -4,7 +4,7 @@
 \alias{import_kable}
 \title{Include TeX file in R Markdown or Quarto document.}
 \usage{
-import_kable(path=".",chunk,file,start=NA,end=NA,skip_blank=FALSE,format=kable_format(),
+import_kable(path=".",chunk,file,start=NA,end=NA,skip_blank=TRUE,format=kable_format(),
  digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
   label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE,
    longtable = FALSE, valign = "t",position = "h", centering = TRUE,
@@ -29,7 +29,7 @@ linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline",
 
 \item{end}{Numeric. The last line of the \code{TeX} file to include.}
 
-\item{skip_blank}{Logical. Whether or not to include blank lines}
+\item{skip_blank}{Logical. Whether or not to include blank rows.}
 
 \item{format}{A character string. Possible values are \code{latex},
 \code{html}, \code{pipe} (Pandoc's pipe tables), \code{simple} (Pandoc's

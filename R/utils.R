@@ -1,6 +1,8 @@
 #' @import knitr
 #' @import kableExtra
+#' @import rmarkdown
 #' @importFrom utils read.csv
+
 
 # create_dir
 
