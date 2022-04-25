@@ -151,8 +151,8 @@ The `gretl` chunk also saves the OSL table as `olsTable.csv`. The `import_kable`
 
 ```{r importKable}
 import_kable(chunk = "gretlR",file = "olsTAble.csv",caption="Table generated from gretl 
-             chunk", start=3,end=7,digits=2) |> 
-kableExtra::kable_styling(latex_options = c("basic","hold_position","scale_down")) |> 
+             chunk", start=3,end=7,digits=2) %>% 
+kableExtra::kable_styling(latex_options = c("basic","hold_position","scale_down")) %>% 
  kableExtra::row_spec(0,bold=T)
 
 ```
