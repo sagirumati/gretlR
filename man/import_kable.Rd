@@ -2,10 +2,11 @@
 % Please edit documentation in R/import_kable.R
 \name{import_kable}
 \alias{import_kable}
-\title{Include TeX file in R Markdown or Quarto document.}
+\title{Import file as \code{kable} in R Markdown or Quarto document.}
 \usage{
-import_kable(path=".",chunk="",file="",start=NA,end=NA,skip_blank=TRUE,format=kable_format(),
- digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
+import_kable(path=".",chunk="",file="",start=NA,end=NA,skip_blank=TRUE,
+format=kable_format(),digits = getOption("digits"), row.names = NA,col.names = NA, align,
+caption = NULL,
   label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE,
    longtable = FALSE, valign = "t",position = "h", centering = TRUE,
    vline = getOption("knitr.table.vline",if (booktabs) "" else "|"),
@@ -122,10 +123,10 @@ caption is provided.}
 \item{...}{Other arguments (see Examples and References).}
 }
 \value{
-Set of \code{gretl} (open-source software for Econometrics) outputs
+\code{kable}
 }
 \description{
-Use this function to include TeX file in R Markdown or Quarto document.
+Use this function to import file as \code{kable} in R Markdown or Quarto document.
 }
 \examples{
 library(gretlR)

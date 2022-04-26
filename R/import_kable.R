@@ -1,9 +1,10 @@
-#' Include TeX file in R Markdown or Quarto document.
+#' Import file as `kable` in R Markdown or Quarto document.
 #'
-#' Use this function to include TeX file in R Markdown or Quarto document.
+#' Use this function to import file as `kable` in R Markdown or Quarto document.
 #'
-#'@usage import_kable(path=".",chunk="",file="",start=NA,end=NA,skip_blank=TRUE,format=kable_format(),
-#'  digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
+#'@usage import_kable(path=".",chunk="",file="",start=NA,end=NA,skip_blank=TRUE,
+#'format=kable_format(),digits = getOption("digits"), row.names = NA,col.names = NA, align,
+#'caption = NULL,
 #'   label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE,
 #'    longtable = FALSE, valign = "t",position = "h", centering = TRUE,
 #'    vline = getOption("knitr.table.vline",if (booktabs) "" else "|"),
@@ -23,7 +24,7 @@
 #' @param chunk Name of the `gretl` chunk that generates the `TeX` file.
 #' @param start Numeric. The start line of the `TeX` file to include.
 #' @param end Numeric. The last line of the `TeX` file to include.
-#' @return Set of \code{gretl} (open-source software for Econometrics) outputs
+#' @return \code{kable}
 #' @family important functions
 #' @examples library(gretlR)
 #' \dontrun{
