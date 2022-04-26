@@ -2,7 +2,7 @@
 #'
 #' Use this function to include TeX file in R Markdown or Quarto document.
 #'
-#'@usage import_kable(path=".",chunk,file,start=NA,end=NA,skip_blank=TRUE,format=kable_format(),
+#'@usage import_kable(path=".",chunk="",file="",start=NA,end=NA,skip_blank=TRUE,format=kable_format(),
 #'  digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
 #'   label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE,
 #'    longtable = FALSE, valign = "t",position = "h", centering = TRUE,
@@ -27,13 +27,28 @@
 #' @family important functions
 #' @examples library(gretlR)
 #' \dontrun{
-#' import_kable(chunk = "gretlR",file = "olsTAble.csv",caption="Table generated from gretl
-#' chunk", start=3,end=7,digits=2)
+#' code=r'(nulldata 500
+#' set seed 13
+#' gretl1 = normal()
+#' gretl2 = normal()
+#' setobs 12 1980:01 --time-series
+#' ols gretl1 const gretl2
+#' tabprint --output="olsTable.csv")'
+#'
+#' exec_gretl(code=code,path='gretlR/Table/gretlCode') # this creates 'gretlR/Table' folder
+#'
+#' import_kable(chunk = "Table",file = "olsTable.csv",format="pandoc",caption="Table generated
+#' from gretl chunk", start=3,end=7,digits=2)
+#'
+#' # Alternatively, use the absolute/relative path to the file
+#'
+#' import_kable(path = "gretlR/Table/olsTable.csv",format="pandoc",caption="Table generated
+#'  from path", start=3,end=7,digits=2)
 #'}
 #' @keywords documentation
 #' @export
 
-import_kable=function(path=".",chunk,file,start=NA,end=NA,skip_blank=TRUE,format=kable_format(), digits = getOption("digits"), row.names = NA,
+import_kable=function(path=".",chunk="",file="",start=NA,end=NA,skip_blank=TRUE,format=kable_format(), digits = getOption("digits"), row.names = NA,
 col.names = NA, align, caption = NULL, label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE, longtable = FALSE, valign = "t", position = "h", centering = TRUE, vline = getOption("knitr.table.vline",
 if (booktabs) "" else "|"), toprule = getOption("knitr.table.toprule",
 if (booktabs) "\\toprule" else "\\hline"), bottomrule = getOption("knitr.table.bottomrule",

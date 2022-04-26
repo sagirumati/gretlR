@@ -2,6 +2,7 @@
 #' @import kableExtra
 #' @import rmarkdown
 #' @importFrom utils read.csv
+#' @importFrom magrittr %>%
 
 
 # create_dir
@@ -53,8 +54,13 @@ kable_format <- function(){
 unlink_gretl=function(){
   homePath=path.expand("~")
 
-  gretl_hidden_files=dir(homePath,"^\\.gretl",all.files = T)
- if(all(file.exists(paste0(homePath,'/',gretl_hidden_files))))  unlink(paste0(homePath,'/',gretl_hidden_files),recursive = T)
+  # gretl_hidden_files=dir(homePath,"^\\.gretl",all.files = T)
+
+  # if(all(file.exists(paste0(homePath,'/',gretl_hidden_files))))  unlink(paste0(homePath,'/',gretl_hidden_files),recursive = T)
+
+  gretl_hidden_files=c(".gretl",".gretl2rc")
+
+  unlink(paste0(homePath,'/',gretl_hidden_files),recursive = T)
 
     gretl_folder=dir(homePath,"^gretl$",all.files = T)
 if(file.exists(paste0(homePath,'/',gretl_folder))){

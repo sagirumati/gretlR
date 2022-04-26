@@ -4,14 +4,14 @@
 \alias{include_tex}
 \title{Include TeX file in R Markdown or Quarto document.}
 \usage{
-include_tex(chunk="",tex="",path=".",start=NA,end=NA)
+include_tex(path=".",chunk="",tex="",start=NA,end=NA)
 }
 \arguments{
+\item{path}{Object or a character string representing the path(s) to the \code{TeX} (default: \code{"."})}
+
 \item{chunk}{Name of the \code{gretl} chunk that generates the \code{TeX} file.}
 
 \item{tex}{Name of a \code{LaTeX} file}
-
-\item{path}{Object or a character string representing the path(s) to the \code{TeX} (default: \code{"."})}
 
 \item{start}{Numeric. The start line of the \code{TeX} file to include.}
 
@@ -26,9 +26,21 @@ Use this function to include TeX file in R Markdown or Quarto document.
 \examples{
 library(gretlR)
 \dontrun{
-include_tex(chunk="gretlR1",tex="ols")
+code=r'(nulldata 500
+set seed 13
+gretl1 = normal()
+gretl2 = normal()
+setobs 12 1980:01 --time-series
+ols gretl1 const gretl2
+tabprint --output="olsTable.tex")'
 
-include_tex("path/to/the/tex/file.tex")
+exec_gretl(code=code,path='gretlR/TeXFolder/gretlCode')
+
+include_tex(chunk="TeXFolder",tex="olsTable")
+
+# Alternatively, use the absolute/relative path to the TeX file
+
+include_tex("gretlR/TeXFolder/olsTable.tex")
 }
 }
 \seealso{

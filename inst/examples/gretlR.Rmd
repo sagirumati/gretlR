@@ -1,7 +1,7 @@
 ---
 title: "A Seamless Integration of Gretl and R"
 author: Sagiru Mati (PhD)
-output: bookdown::html_document2
+output: bookdown::pdf_document2
 linkcolor: blue
 toc: false
 ---

@@ -2,7 +2,7 @@
 #'
 #' Use this function to include TeX file in R Markdown or Quarto document.
 #'
-#' @usage include_tex(chunk="",tex="",path=".",start=NA,end=NA)
+#' @usage include_tex(path=".",chunk="",tex="",start=NA,end=NA)
 #' @param path Object or a character string representing the path(s) to the `TeX` (default: `"."`)
 #' @param chunk Name of the `gretl` chunk that generates the `TeX` file.
 #' @param tex Name of a `LaTeX` file
@@ -12,14 +12,26 @@
 #' @family important functions
 #' @examples library(gretlR)
 #' \dontrun{
-#' include_tex(chunk="gretlR1",tex="ols")
+#' code=r'(nulldata 500
+#' set seed 13
+#' gretl1 = normal()
+#' gretl2 = normal()
+#' setobs 12 1980:01 --time-series
+#' ols gretl1 const gretl2
+#' tabprint --output="olsTable.tex")'
 #'
-#' include_tex("path/to/the/tex/file.tex")
+#' exec_gretl(code=code,path='gretlR/TeXFolder/gretlCode')
+#'
+#' include_tex(chunk="TeXFolder",tex="olsTable")
+#'
+#' # Alternatively, use the absolute/relative path to the TeX file
+#'
+#' include_tex("gretlR/TeXFolder/olsTable.tex")
 #'}
 #' @keywords documentation
 #' @export
 
-include_tex <- function(chunk="",tex="",path=".",start=NA,end=NA) {
+include_tex <- function(path=".",chunk="",tex="",start=NA,end=NA) {
 
   if(chunk!="" && tex!=""){
     tex=gsub("\\.tex$","",tex)
