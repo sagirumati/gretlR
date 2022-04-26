@@ -39,7 +39,7 @@ exec_inp <- function(path=".") {
     file=gsub("\\.inp$","",file)
     gretlFile=paste0(fileDir,"/",file,".inp")
     fileDir=normalizePath(fileDir)
-    gretlWorkDir=paste0("set workdir ",shQuote(fileDir))
+    gretlWorkDir=paste0("set workdir ",shQuote(fileDir,type="cmd"))
 
     gretlExecFile=basename(tempfile("gretlexec",".",".inp"))
 
