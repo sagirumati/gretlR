@@ -27,7 +27,7 @@ gnuplot gretl1 --time-series --with-lines --output="line.png"
 gnuplot gretl2 gretl1 --output="scatter.png"
 )'
 write_inp(code,path="SomeFolder/gretlCodes")
-exec_inp("someFolder/gretlCodes")
+exec_inp("SomeFolder/gretlCodes")
 
 }
 }

@@ -57,9 +57,9 @@ if (booktabs) "\\midrule" else "\\hline"), linesep = if (booktabs) c("",
 
 if(skip_blank && any(grep("^\\s*$", path))) path=path[-grep("^\\s*$", path)]
 
-  gretlRcsv=basename(tempfile("grertlR",".",".csv"))
-path=writeLines(path,gretlRcsv)
-on.exit(unlink(gretlRcsv),add = T)
-return(kable(read.csv(gretlRcsv,allowEscapes = T,header = T,check.names = FALSE), format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...))
+  # gretlRcsv=basename(tempfile("grertlR",".",".csv"))
+# path=writeLines(path,gretlRcsv)
+# on.exit(unlink(gretlRcsv),add = T)
+return(kable(read.csv(text=path,allowEscapes = T,header = T,check.names = FALSE), format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...))
 
 }
