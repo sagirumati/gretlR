@@ -1,3 +1,9 @@
+# gretlR 0.1.3
+
+FIX ISSUES TO COMPLY WITH CRAN POLICIES
+
+* Updated examples of each function to be self-contained
+
 # gretlR 0.1.2
 
 Fix issues to meet CRAN policy
