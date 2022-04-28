@@ -1,3 +1,9 @@
+# gretlR 0.1.4
+
+What's new?
+
+* Temporarily update HOME environment so that `.gretl`, `gretl` and `.gretl2rc` files are neither created, deleted nor  modified in the User's home on Linux.
+
 # gretlR 0.1.3
 
 FIX ISSUES TO COMPLY WITH CRAN POLICIES
