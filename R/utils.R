@@ -88,3 +88,5 @@ kable_format <- function(){
 #   }
 #
 # }
+
+p=\() Sys.setenv(HOME=tempdir())

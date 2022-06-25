@@ -1,6 +1,15 @@
-A Seamless Integration of Gretl and R
+gretlR: A Seamless Integration of Gretl and R
 ================
 Sagiru Mati (PhD)
+
+#  <img src="inst/gretl/gretlR.png" align="right" width="150" />
+
+<!-- badges: start -->
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/gretlR)](https://cran.r-project.org/package=gretlR)
+[![CRAN_Status_Badge](https://cranlogs.r-pkg.org/badges/grand-total/gretlR?color=49C31B)](https://cranlogs.r-pkg.org/badges/grand-total/gretlR?color=49C31B)
+[![](https://cranlogs.r-pkg.org/badges/gretlR?color=49C31B)](https://cranlogs.r-pkg.org/badges/gretlR?color=49C31B)
+
+<!-- badges: end -->
 
 # About gretlR
 
