@@ -11,9 +11,10 @@ Sagiru Mati (PhD)
 
 <!-- badges: end -->
 
+
 # About gretlR
 
-gretlR is an R package that can run `gretl` program from R Markdown.
+gretlR is an R package that can run `gretl` program from R, R Markdown and Quarto.
 
 # Installation
 

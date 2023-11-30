@@ -6,11 +6,12 @@ format: pdf
 execute:
   echo: fenced
   eval: false
+bibliography: references.bib
 ---
 
 # About gretlR
 
-gretlR is an R package that can run `gretl` program from R Markdown.
+gretlR is an R package that can run `gretl` program from R, R Markdown and Quarto.
 
 # Installation
 
@@ -183,7 +184,17 @@ demo(exec_gretl)
 The R Markdown template for the `gretlR` can be accessed via
 `file -> New File -> R Markdown -> From Template -> gretlR`
 
+# Similar Packages
+
+Similar packages include [DynareR](https://github.com/sagirumati/DynareR) [@Mati2020;@mati2022dynarer], [EviewsR](https://github.com/sagirumati/gretlR) [ @mati2022eviewsr;@Mati2020a;@Mati2023], and  [URooTab](https://github.com/sagirumati/URooTab) [@Mati2023a;@mati2023urootab]
+
+For further details, consult @Mati2020b;@mati2022gretlr.
+
+
 <br><br><br><br>
 
 Please download a set of example files from
 [Github](https://github.com/sagirumati/gretlR/tree/master/inst/examples/).
+
+
+# References

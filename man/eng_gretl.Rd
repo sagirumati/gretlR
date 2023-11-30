@@ -16,8 +16,10 @@ Set of \code{gretl} (open-source software for Econometrics) codes
 This package runs on top of knitr to facilitate communication with \code{gretl}. Run \code{gretl} scripts from R, R Markdown and Quarto document.
 }
 \details{
-The \code{gretl} engine can be activated via\preformatted{knitr::knit_engines$set(gretl = gretlR::eng_gretl)
-}
+The \code{gretl} engine can be activated via
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{knitr::knit_engines$set(gretl = gretlR::eng_gretl)
+}\if{html}{\out{</div>}}
 
 This will be set within an R Markdown document's setup chunk.
 }
@@ -26,6 +28,16 @@ knitr::knit_engines$set(gretl = gretlR::eng_gretl)
 library(gretlR)
 }
 \references{
+Mati, Sagiru. 2020a. “DynareR: Bringing the Power of Dynare to R, R Markdown, and Quarto.” CRAN. https://CRAN.R-project.org/package=DynareR.
+
+Mati, Sagiru. 2020b. EviewsR: A Seamless Integration of EViews and R. \url{https://CRAN.R-project.org/package=EviewsR}.
+
+Mati, Sagiru. 2020c. gretlR: A Seamless Integration of Gretl and R. \url{https://CRAN.R-project.org/package=gretlR}.
+
+Mati, Sagiru. 2023b. URooTab: Tabular Reporting of EViews Unit Root Tests. \url{https://CRAN.R-project.org/package=URooTab}.
+
+Mati, Sagiru, Irfan Civcir, and S. I. Abba. 2023. “EviewsR: An r Package for Dynamic and Reproducible Research Using EViews, r, r Markdown and Quarto.” The R Journal 15 (2): 169–205. \url{https://doi.org/10.32614/rj-2023-045}.
+
 Bob Rudis (2015).Running Go language chunks in R Markdown (Rmd) files. Available at:  https://gist.github.com/hrbrmstr/9accf90e63d852337cb7
 
 Yihui Xie (2019). knitr: A General-Purpose Package for Dynamic Report Generation in R. R package version 1.24.

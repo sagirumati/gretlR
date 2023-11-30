@@ -14,7 +14,7 @@ URL: https://CRAN.R-project.org/package=gretlR
 BugReports: https://github.com/sagirumati/gretlR/issues
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 NeedsCompilation: no
 Packaged: 2020-06-09 15:31:44 UTC; Sagiru
 Repository: CRAN

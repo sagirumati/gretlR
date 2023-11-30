@@ -6,7 +6,7 @@
 \alias{gretlR-package}
 \title{gretlR: A Seamless Integration of 'Gretl' and 'R'}
 \description{
-It allows running 'gretl' (<http://gretl.sourceforge.net/index.html>) program from R, R Markdown and Quarto. 'gretl' ('Gnu' Regression, 'Econometrics', and Time-series Library) is a statistical software for Econometric analysis. This package does not only integrate 'gretl' and 'R' but also serves as a 'gretl' Knit-Engine for 'knitr' package. Write all your 'gretl' commands in 'R', R Markdown chunk.
+It allows running 'gretl' (\url{http://gretl.sourceforge.net/index.html}) program from R, R Markdown and Quarto. 'gretl' ('Gnu' Regression, 'Econometrics', and Time-series Library) is a statistical software for Econometric analysis. This package does not only integrate 'gretl' and 'R' but also serves as a 'gretl' Knit-Engine for 'knitr' package. Write all your 'gretl' commands in 'R', R Markdown chunk.
 }
 \seealso{
 Useful links:
