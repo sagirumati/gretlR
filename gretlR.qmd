@@ -191,7 +191,7 @@ The R Markdown template for the `gretlR` can be accessed via
 
 Similar packages include [DynareR](https://github.com/sagirumati/DynareR) [@Mati2020;@mati2022dynarer], [EviewsR](https://github.com/sagirumati/gretlR) [ @mati2022eviewsr;@Mati2020a;@Mati2023], and  [URooTab](https://github.com/sagirumati/URooTab) [@Mati2023a;@mati2023urootab]
 
-For further details, consult @Mati2020b;@mati2022gretlr.
+For further details, consult @Mati2020b and @mati2022gretlr.
 
 
 <br><br><br><br>
