@@ -1,3 +1,9 @@
+# gretlR 0.1.5
+
+* to update include_tex newTex path
+
+* change in mentainer's email
+
 # gretlR 0.1.4
 
 What's new?

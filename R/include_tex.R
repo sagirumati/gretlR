@@ -46,29 +46,39 @@ if(path!=".") {
   if(!is.na(start) && is.na(end)){
     path=readLines(path)
     path=path[start:length(path)]
+
+
     # newTex=basename(tempfile("newTex",".",".tex"))
-    # writeLines(path,newTex)
-    # path=newTex
+    newTex=tempfile("newTex",tempdir(),".tex")%>% basename()
+    writeLines(path,newTex)
+    path=newTex
     }
 
 
   if(is.na(start) && !is.na(end)){
     path=readLines(path)
     path=path[(1:end)]
+
+
     # newTex=basename(tempfile("newTex",".",".tex"))
-    # writeLines(path,newTex)
-    # path=newTex
+    newTex=tempfile("newTex",tempdir(),".tex")%>% basename()
+    writeLines(path,newTex)
+    path=newTex
   }
 
 
   if(!is.na(start) && !is.na(end)){
     path=readLines(path)
     path=path[start:end]
-    # newTex=basename(tempfile("newTex",".",".tex"))
-    # writeLines(path,newTex)
-    # path=newTex
+
+    # # newTex=basename(tempfile("newTex",".",".tex"))
+    newTex=tempfile("newTex",tempdir(),".tex") %>% basename()
+    writeLines(path,newTex)
+    path=newTex
   }
 
 
-if (!is.na(start) || !is.na(end)) asis_output(path) else asis_output(paste0("\\input{",path,"}"))
+if (!is.na(start) || !is.na(end)) asis_output(paste0("\\input{",newTex,"}"))  else asis_output(paste0("\\input{",path,"}"))
+
+  # asis_output(paste0("\\input{",shQuote(path),"}"))
 }
